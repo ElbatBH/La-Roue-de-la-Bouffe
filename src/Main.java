@@ -2,37 +2,38 @@
  * @Authors : Elb@t
  * @Version : 0.1 Janvier 2017
  *
- */
+ **/
 
 import java.util.Scanner;
 import java.util.Random;
 
-public class Progr {
-    static Scanner clavier = new Scanner(System.in);
-    static Random Rand = new Random();
+    public class Main {
+        static Scanner clavier = new Scanner(System.in);
+        static Random Rand = new Random();
 
-    public static void main(String[] args) {
-        System.out.println("Combien de choix avez vous en tete ?");
-        int nbChoix = clavier.nextInt();
-
-        String restaurant[] = new String[10];
-        int result =0;
-
-        System.out.println("Ou voulez vous manger ?");
-        for (int i = 0; i <= nbChoix; i++) {
-            restaurant[i] = clavier.nextLine();
+        public static void main(String[] args) {
+            System.out.println("Combien de choix de restaurant ?");
+            int nbChoix = clavier.nextInt();
+            String restaurant[] = new String[10];
+            System.out.println("Quelles sont vos idees ?");
+            for (int i = 0; i <= nbChoix; i++) {
+                restaurant[i] = clavier.nextLine();
+            }
+            trieAlpha(restaurant);
+            int result = leTirage(0, nbChoix);
+            System.out.println("Vous allez manger au : " + restaurant[result]);
         }
 
-        result = leTirage(nbChoix);
+        /** Tire un nombre aleatoire entre min et mbdeproposition **/
+        public static int leTirage(int min, int max){
+            /** Tirage entre 0 et max-1, on rajoute 1 pour avoir entre 1 et max. **/
+            int aleatoire = Rand.nextInt(max-1)+1;
+            return aleatoire;
+        }
 
-        System.out.println("Vous allez manger au : " + restaurant[result]);
+        /** Trie le tab par ordre Alpha **/
+        public static void trieAlpha (String[] tab){
+
+
+        }
     }
-/** Tire un nombre aleatoire entre 0 et mbdeproposition **/
-    public static int leTirage(int nbdeproposition){
-        double max = nbdeproposition;
-        double min = 0;
-        /** Pour avoir le max car 1 est exclu avec Math.random **/
-        double result = Math.random()*(max-min+1)+min;
-        return (int)result;
-    }
-}
