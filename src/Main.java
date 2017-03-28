@@ -4,6 +4,7 @@
  *
  **/
 
+import javax.swing.*;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -12,28 +13,29 @@ import java.util.Random;
         static Random Rand = new Random();
 
         public static void main(String[] args) {
-            System.out.println("Combien de choix de restaurant ?");
-            int nbChoix = clavier.nextInt();
+
+            JOptionPane.showMessageDialog(null,"Bienvenue dans la roue de la Bouffe !");
+
+            int nbChoix = Integer.parseInt(JOptionPane.showInputDialog("Combien de choix de restaurant ?"));
+
             String restaurant[] = new String[10];
-            System.out.println("Quelles sont vos idees ?");
-            for (int i = 0; i <= nbChoix; i++) {
-                restaurant[i] = clavier.nextLine();
+
+            for (int i = 0; i < nbChoix; i++) {
+                restaurant[i] = JOptionPane.showInputDialog("Entrez le restaurant numero " +(i+1));
             }
-            trieAlpha(restaurant);
-            int result = leTirage(0, nbChoix);
-            System.out.println("Vous allez manger au : " + restaurant[result]);
+            JOptionPane.showMessageDialog(null,"Vous allez manger au : " +restaurant[leTirage(nbChoix)]);
         }
 
         /** Tire un nombre aleatoire entre min et mbdeproposition **/
-        public static int leTirage(int min, int max){
-            /** Tirage entre 0 et max-1, on rajoute 1 pour avoir entre 1 et max. **/
-            int aleatoire = Rand.nextInt(max-1)+1;
-            return aleatoire;
+        public static int leTirage(int max){
+            /** S'il y a qu'un restaurant on retourne 0 **/
+            if (max==1){return 0;}
+            else {
+                /** Tirage entre 0 et max**/
+                int aleatoire = Rand.nextInt(max);
+                return aleatoire;
+            }
         }
 
-        /** Trie le tab par ordre Alpha **/
-        public static void trieAlpha (String[] tab){
 
-
-        }
     }
