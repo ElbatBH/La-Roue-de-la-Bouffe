@@ -11,16 +11,13 @@ import javax.swing.*;
 
         public static void main(String[] args) {
 
+            //Message Bienvenue.
             JOptionPane.showMessageDialog(null,"Bienvenue dans la roue de la Bouffe !");
 
-            int nbChoix = Integer.parseInt(JOptionPane.showInputDialog("Combien de choix de restaurant ?"));
+            ListeRestaurants.demanderRestaurant();
 
-            String restaurant[] = new String[10];
+            JOptionPane.showMessageDialog(null,"Vous allez manger au : ");
 
-            for (int i = 0; i < nbChoix; i++) {
-                restaurant[i] = JOptionPane.showInputDialog("Entrez le restaurant numero " +(i+1));
-            }
-            JOptionPane.showMessageDialog(null,"Vous allez manger au : " +restaurant[ListeRestaurants.leTirage(nbChoix)]);
         }
 
 

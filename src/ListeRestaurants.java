@@ -1,11 +1,9 @@
+import javax.swing.*;
 import java.util.Random;
 import java.util.ArrayList;
 
 public class ListeRestaurants {
-    ArrayList Resaurants = new ArrayList();
-
-
-
+    ArrayList<Restaurant> Resaurants = new ArrayList<Restaurant>();
 
 
     /**
@@ -21,6 +19,25 @@ public class ListeRestaurants {
             int aleatoire = Rand.nextInt(max);
             return aleatoire;
         }
+    }
+
+
+    /**
+     * Demande le restaurant et le met dans la liste des Restaurants
+     */
+    public static ArrayList<Restaurant> demanderRestaurant() {
+        ArrayList<Restaurant> restos = new ArrayList<Restaurant>();
+
+        for (int i = 0; i < 10; i++) {
+            //String nomResto = JOptionPane.showInputDialog("Entrez le restaurant numero " +(i+1));
+
+            Restaurant resto = new Restaurant(JOptionPane.showInputDialog("Entrez le restaurant numero " +(i+1)));
+
+            restos.add(resto);
+
+
+        }
+    return restos;
     }
 }
 
